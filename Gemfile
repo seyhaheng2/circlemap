@@ -14,7 +14,6 @@ gem 'leaflet-rails'
 gem 'elasticsearch-rails'
 gem 'gmaps4rails'
 gem 'underscore-rails'
-gem 'leaflet-draw-rails'
 
 
 group :development, :test do

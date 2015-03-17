@@ -23,12 +23,12 @@
 }
 
 .leaflet-draw-toolbar a {
-	background-image: url('images/spritesheet.png');
+	background-image: url('spritesheet.png');
 	background-repeat: no-repeat;
 }
 
 .leaflet-retina .leaflet-draw-toolbar a {
-	background-image: url('images/spritesheet-2x.png');
+	background-image: url('spritesheet-2x.png');
 	background-size: 270px 30px;
 }
 
@@ -137,14 +137,17 @@
 
 .leaflet-draw-toolbar .leaflet-draw-draw-polyline {
 	background-position: -2px -2px;
+	display: none;
 }
 
 .leaflet-touch .leaflet-draw-toolbar .leaflet-draw-draw-polyline {
 	background-position: 0 -1px;
+	display: none;
 }
 
 .leaflet-draw-toolbar .leaflet-draw-draw-polygon {
 	background-position: -31px -2px;
+	display: none;
 }
 
 .leaflet-touch .leaflet-draw-toolbar .leaflet-draw-draw-polygon {
@@ -153,10 +156,12 @@
 
 .leaflet-draw-toolbar .leaflet-draw-draw-rectangle {
 	background-position: -62px -2px;
+	display: none;
 }
 
 .leaflet-touch .leaflet-draw-toolbar .leaflet-draw-draw-rectangle {
 	background-position: -60px -1px;
+	display: none;
 }
 
 .leaflet-draw-toolbar .leaflet-draw-draw-circle {
@@ -169,10 +174,12 @@
 
 .leaflet-draw-toolbar .leaflet-draw-draw-marker {
 	background-position: -122px -2px;
+	display: none;
 }
 
 .leaflet-touch .leaflet-draw-toolbar .leaflet-draw-draw-marker {
 	background-position: -120px -1px;
+	display: none;
 }
 
 /* ================================================================== */
@@ -181,6 +188,7 @@
 
 .leaflet-draw-toolbar .leaflet-draw-edit-edit {
 	background-position: -152px -2px;
+	display: none;
 }
 
 .leaflet-touch .leaflet-draw-toolbar .leaflet-draw-edit-edit {

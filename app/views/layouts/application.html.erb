@@ -18,63 +18,41 @@
 
       var map = L.map('map').setView([11.5754, 104.9234], 16);
       L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-          attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+          // attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
       }).addTo(map);      
 
-      var circleLocation = new L.LatLng(11.5754, 104.9234),
-      circleOptions = {
-          color: 'red', 
-          fillColor: '#f03', 
-          fillOpacity: 0.3,
-          extendedIconClass : 'extend-icon'
-      };
-      var circle = new L.CircleEditor(circleLocation, 500, circleOptions);
-      map.addLayer(circle);
-      circle.bindPopup('I am a circle');
-      circleOptions = {
-          color: 'red', 
-          fillColor: 'yellow', 
-          fillOpacity: 0.7,
-          extendedIconClass : ''
-      };
+      var drawnItems = new L.FeatureGroup();
+      map.addLayer(drawnItems);
 
-      circle.on('edit', function() {
-              console.log('Circle was edited!');
+      var drawControl = new L.Control.Draw({
+        draw: {
+          position: 'topleft',
+          circle: {
+            shapeOptions: {
+              color: '#f03'
+            }
+          }
+        },
+        edit: {
+          featureGroup: drawnItems
+        }
       });
-      circle.on('centerchange', function() {
-        console.log('the circle has moved.'+circleLocation);
+      map.addControl(drawControl);
+      map.on('draw:created', function (e) {
+        var type = e.layerType,
+          layer = e.layer;
+        console.log("lat "+e.layer._latlng.lat);
+        console.log("lng "+e.layer._latlng.lng);
+        console.log("r "+e.layer._mRadius)
+        if (type === 'circle') {
+          layer.redraw('A popup!');
+        }
+        drawnItems.addLayer(layer);
       });
-      circle.on('radiuschange', function() {
-        console.log('the radius has chahged to: ' + this._mRadius);
-      });
-
-
-
-
-
-
-
-var polygonDrawer = new L.Draw.Polyline(map);
-
-// Assumming you have a Leaflet map accessible
-map.on('draw:created', function (e) {
-    var type = e.layerType,
-        layer = e.layer;
-
-    // Do whatever you want with the layer.
-    // e.type will be the type of layer that has been draw (polyline, marker, polygon, rectangle, circle)
-    // E.g. add it to the map
-    layer.addTo(map);
-});
-
-// Click handler for you button to start drawing polygons
-$('#draw_poly').click(function() {
-    polygonDrawer.enable();
-});
-
-
-
-
+      // map.on('edit:created', function (e) {
+        
+      // })
+    
   </script>
 
 </body>
