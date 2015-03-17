@@ -12,10 +12,10 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'leaflet-rails'
 gem 'elasticsearch-rails'
-gem 'geocoder'
-gem 'mapbox-rails'
 gem 'gmaps4rails'
 gem 'underscore-rails'
+gem 'leaflet-draw-rails'
+
 
 group :development, :test do
   gem 'byebug'

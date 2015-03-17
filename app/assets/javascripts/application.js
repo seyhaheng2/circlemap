@@ -16,5 +16,6 @@
 //= require turbolinks
 //= require mapbox.js
 //= require underscore	
+
 //= require_tree .
 
